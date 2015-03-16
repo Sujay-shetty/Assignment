@@ -1,0 +1,87 @@
+<div class="container-fluid">
+    <div class="row">
+        <form name="customerForm" novalidate ng-submit="saveCustomer(newCustomer)">
+            <table ng-hide="status"
+               class="table table-condensed table-striped table-responsive">
+                <caption>New Customer Profile</caption>
+                <tbody>
+                <tr>
+                    <td>Customer Id:</td>
+                    <td>
+                        <input type="text"
+                               name="id"
+                               ng-model="newCustomer.id"
+                               ng-disabled="true" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                        <input type="text" name="name"
+                               ng-required
+                               ng-minlength="5" ng-maxlength="15"
+                               ng-model="newCustomer.name" />
+                    </td>
+                    <td>
+                        <strong class="alert-warning"
+                                ng-show="customerForm.name.$invalid && !customerForm.name.$pristine">
+                            Invalid Customer Name Specified!
+                        </strong>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Address:</td>
+                    <td>
+                        <textarea ng-model="newCustomer.address"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Phone Number:</td>
+                    <td>
+                        <input type="text" name="phoneNumber"
+                               ng-required
+                               ng-pattern="phoneExpression"
+                               ng-model="newCustomer.phoneNumber" />
+                    </td>
+                    <td>
+                        <strong class="alert-warning"
+                                ng-show="customerForm.phoneNumber.$invalid && !customerForm.phoneNumber.$pristine">
+                            Invalid Phone Number Specified!
+                        </strong>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Credit Limit:</td>
+                    <td>
+                        <input type="text" ng-model="newCustomer.credit" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Active Status:</td>
+                    <td>
+                        <input type="checkbox" ng-model="newCustomer.status" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" class="btn btn-info" value="Save"
+                               ng-disabled="customerForm.$invalid || customerForm.$pristine" />
+                        <input type="reset" class="btn btn-info" value="Reset" />
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </form>
+
+        <div class="alert-info" ng-show="status">
+            <strong>{{ status }}</strong>
+        </div>
+    </div>
+</div>

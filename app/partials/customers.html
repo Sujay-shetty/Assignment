@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <table id="mainTable" class="table table-hover table-bordered table-responsive">
+                <thead>
+                    <tr>
+                        <th>Customer #</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Perform Action</th>
+                    </tr>
+                </thead>
+
+                <tbody ng-repeat="customer in customers">
+                    <tr>
+                        <td>{{ customer.id }}</td>
+                        <td>
+                            <div ng-hide="editingData[customer.id]" ng-click="loadDetails(customer.id)">{{ customer.name }}</div>
+                            <div ng-show="editingData[customer.id]"><input type="text" ng-model="customer.name" /></div>
+                        </td>
+                        <td>
+                            <div ng-hide="editingData[customer.id]" ng-click="loadDetails(customer.id)">{{ customer.address }}</div>
+                            <div ng-show="editingData[customer.id]"><input type="text" ng-model="customer.address" /></div>
+                        </td>
+                        <td>
+                            <button ng-hide="editingData[customer.id]" ng-click="modify(customer)" type="button">Edit</button>
+                            <button ng-show="editingData[customer.id]" ng-click="updateDetails(customer)">Update</button>
+                            <button ng-click="deleteDetails(customer.id)" type="button">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <customer-profile-viewer profile="details"></customer-profile-viewer>
+    </div>
+</div>

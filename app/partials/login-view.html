@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="row" ng-hide="authenticationStatus">
+        <table>
+            <tbody>
+                <tr>
+                    <td>&nbsp;&nbsp;User Name:</td>
+                    <td>
+                        <input type="text" ng-model="username" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>&nbsp;&nbsp;Password:</td>
+                    <td>
+                        <input type="password" ng-model="password"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        &nbsp;&nbsp;<input type="button" value="Login"
+               ng-click="login(username, password)" />
+
+        <div class="alert-info">
+            <strong>&nbsp;&nbsp; Status: {{ message }}</strong>
+        </div>
+    </div>
+</div>

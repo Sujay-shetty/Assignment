@@ -1,0 +1,10 @@
+.thumbnail {
+    height: 191px;
+    width: 300px;
+}
+#rowContent {
+    display: block;
+}
+#hideButton {
+    display: block;
+}

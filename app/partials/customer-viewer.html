@@ -1,0 +1,40 @@
+<div class="col-md-6">
+    <table class="table table-responsive table-condensed table-striped"
+           ng-show="profile" >
+        <caption>Customer Profile Details</caption>
+        <tbody>
+            <tr>
+                <td>Customer Profile #</td>
+                <td>{{ profile.id }}</td>
+            </tr>
+
+            <tr>
+                <td>Contact Name</td>
+                <td>{{ profile.name }}</td>
+            </tr>
+
+            <tr>
+                <td>Address</td>
+                <td>{{ profile.address }}</td>
+            </tr>
+
+            <tr>
+                <td>Credit Limit</td>
+                <td>{{ profile.credit | currency }}</td>
+            </tr>
+
+            <tr>
+                <td>Active Status</td>
+                <td>{{ profile.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<!--
+
+<div class="col-md-6">
+    <img ng-show="profile && imageUrl"
+         ng-src="{{ imageUrl }}"
+         alt="Customer Photo"
+         class="thumbnail"/>
+</div>-->
